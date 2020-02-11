@@ -1,0 +1,96 @@
+body {
+  font-family: montserrat;
+  display: flex;
+  flex-direction: column;
+}
+.chat {
+  display: none;
+  align-self: center;
+}
+
+hr {
+  width: 50%;
+  margin-bottom: 30px;
+  border: 1px solid black;
+}
+
+.container_inscription.horizTranslate {
+  transition: 3s ease-out;
+  margin-left: 33% !important;
+  margin-top: 10% !important;
+}
+
+.createAccount {
+  margin-top: 5px;
+  width: 150px;
+  align-self: center;
+  background: #000;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+  align-self: center;
+}
+
+.container_inscription {
+  margin: 30px;
+  width: 33%;
+  padding: 25px;
+  display: none;
+  flex-direction: column;
+  background: #f8f8f8;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+
+.container_connexion {
+  width: 33%;
+  margin-top: 10%;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  background: #f8f8f8;
+  border-radius: 20px;
+  border: 1px solid black;
+  align-self: center;
+}
+
+.connexion {
+  display: flex;
+  flex-direction: column;
+}
+.inscription {
+  display: flex;
+  flex-direction: column;
+}
+.p_connexion {
+  text-align: center;
+}
+
+.input {
+  margin-top: 10px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  color: #2c3e50;
+  font-size: 13px;
+}
+
+.action-button {
+  width: 250px;
+  background: #000;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+  align-self: center;
+}
