@@ -3,8 +3,9 @@ var login;
 function newUser() {
   var username = document.inscription.username.value;
   var password = document.inscription.password.value;
+  var email = document.inscription.email.value;
   var req = new XMLHttpRequest();
-  req.open("POST", "http://127.0.0.1:1337/subscribe", true);
+  req.open("POST", "http://143ea290.ngrok.io/subscribe");
   req.setRequestHeader("Content-Type", "application/json");
   req.onreadystatechange = function() {
     if (req.readyState == 4 && req.status == 200) {
@@ -15,34 +16,41 @@ function newUser() {
       console.log(req.responseText);
     }
   };
-  req.send('{"password": "' + password + '", "login": "' + username + '"}');
+  req.send(
+    '{"password": "' +
+      password +
+      '", "username": "' +
+      username +
+      '", "email": "' +
+      email +
+      '"}'
+  );
 }
 
-function loginUser() {
+async function loginUser() {
   var username = document.connexion.username.value;
   var password = document.connexion.password.value;
   var req = new XMLHttpRequest();
   login = username;
-  req.open("POST", "http://127.0.0.1:1337/login", true);
+  req.open("POST", "http://143ea290.ngrok.io/login");
   req.setRequestHeader("Content-Type", "application/json");
-  req.onreadystatechange = function() {
+  req.onreadystatechange = async function() {
     if (req.readyState == 4 && req.status == 200) {
       console.log(req.responseText);
       document.getElementById("container_connexion").style.display = "none";
       document.getElementById("createAccount").style.display = "none";
       document.getElementById("chat").style.display = "block";
-    } else {
-      alert("bad login !");
+      var ticket = await fetch("http://143ea290.ngrok.io/wsTicket", {
+        method: "GET",
+        credentials: "include"
+      });
+
+      const ticketValue = await ticket.text();
+      console.log(ticketValue);
     }
   };
-  req.send('{"password": "' + password + '", "login": "' + username + '"}');
+  req.send('{"password": "' + password + '", "username": "' + username + '"}');
 }
-
-// document.getElementById("trraa").onclick = function() {
-//   inscription.style.display = "block";
-//   var translate = inscription.classList.add("horizTranslate");
-//   translate.setTimeout(() => {}, 2000);
-// };
 
 function createAccount() {
   document.getElementById("container_inscription").style.display = "flex";
@@ -56,7 +64,7 @@ function createAccount() {
 }
 
 (function() {
-  var ws = new WebSocket("ws://localhost:1338");
+  var ws = new WebSocket("ws://143ea290.ngrok.io");
   var form = document.querySelector(".form");
 
   form.onsubmit = function() {

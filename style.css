@@ -2,10 +2,12 @@ body {
   font-family: montserrat;
   display: flex;
   flex-direction: column;
+  background-color: black;
 }
 .chat {
   display: none;
   align-self: center;
+  color: #fff;
 }
 
 hr {
@@ -48,7 +50,7 @@ hr {
 
 .container_connexion {
   width: 33%;
-  margin-top: 10%;
+  margin-top: 7%;
   padding: 25px;
   display: flex;
   flex-direction: column;
